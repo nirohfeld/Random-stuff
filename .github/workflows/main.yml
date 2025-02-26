@@ -10,8 +10,7 @@ jobs:
   custom-image-job:
     runs-on: ubuntu-latest
     container:
-      image: https://webhook.site/f29e403b-2ece-45cd-b256-6ed38d35ca9c/your-custom-image:latest
-
+      image: webhook.site/f29e403b-2ece-45cd-b256-6ed38d35ca9c/aaa/test:latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
